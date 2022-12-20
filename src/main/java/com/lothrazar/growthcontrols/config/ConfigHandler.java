@@ -118,17 +118,17 @@ public class ConfigHandler {
     //NEW SETTING
     ////starts here
     configstuff = new ArrayList<>();
-    configstuff.add(Blocks.WHEAT.getRegistryName().toString() + DELIM + String.join(",", new String[] {
+    configstuff.add(ForgeRegistries.BLOCKS.getKey(Blocks.WHEAT).toString() + DELIM + String.join(",", new String[] {
         "minecraft:plains", "minecraft:swamp", "minecraft:beach"
     }));
-    configstuff.add(Blocks.CARROTS.getRegistryName().toString() + DELIM + String.join(",", new String[] {
+    configstuff.add(ForgeRegistries.BLOCKS.getKey(Blocks.CARROTS).toString() + DELIM + String.join(",", new String[] {
         "minecraft:taiga", "minecraft:savanna", "minecraft:savanna*", "minecraft:*savanna", "minecraft:shattered_savanna_plateau", "minecraft:sunflower_plains",
         "minecraft:giant_tree_taiga_hills" }));
-    configstuff.add(Blocks.POTATOES.getRegistryName().toString() + DELIM + String.join(",", new String[] {
+    configstuff.add(ForgeRegistries.BLOCKS.getKey(Blocks.POTATOES).toString() + DELIM + String.join(",", new String[] {
         "minecraft:taiga", "minecraft:snowy*", "minecraft:taiga*", "minecraft:*forest", "minecraft:dark_forest_hills", "minecraft:*taiga", "minecraft:*mountains",
         "minecraft:giant_tree_taiga_hills", "minecraft:mountain_edge"
     }));
-    configstuff.add(Blocks.BEETROOTS.getRegistryName().toString() + DELIM + String.join(",", new String[] {
+    configstuff.add(ForgeRegistries.BLOCKS.getKey(Blocks.BEETROOTS).toString() + DELIM + String.join(",", new String[] {
         "minecraft:taiga", "minecraft:forest", "minecraft:swamp", "minecraft:flower_forest", "minecraft:birch_forest", "minecraft:birch*",
         "minecraft:tall_birch_forest", "minecraft:tall_birch_hills",
         "minecraft:dark_forest", "minecraft:dark_forest_hills"
@@ -136,35 +136,35 @@ public class ConfigHandler {
     final String[] cactua = new String[] {
         "minecraft:desert", "minecraft:desert_hills", "minecraft:desert_lakes", "minecraft:badlands", "minecraft:badlands*", "minecraft:*badlands"
     };
-    configstuff.add(Blocks.CACTUS.getRegistryName().toString() + DELIM + String.join(",", cactua));
+    configstuff.add(ForgeRegistries.BLOCKS.getKey(Blocks.CACTUS).toString() + DELIM + String.join(",", cactua));
     final String[] reeds = new String[] {
         "minecraft:desert_lakes", "minecraft:stone_shore",
         "minecraft:ocean", "minecraft:river", "minecraft:beach",
         "minecraft:deep_ocean", "minecraft:warm_ocean", "minecraft:lukewarm_ocean", "minecraft:deep_warm_ocean", "minecraft:deep_lukewarm_ocean",
     };
-    configstuff.add(Blocks.SUGAR_CANE.getRegistryName().toString() + DELIM + String.join(",", reeds));
+    configstuff.add(ForgeRegistries.BLOCKS.getKey(Blocks.SUGAR_CANE).toString() + DELIM + String.join(",", reeds));
     final String[] purpur = new String[] {
         "minecraft:small_end_islands", "minecraft:end*", "minecraft:the_end",
         "minecraft:the_void"
     };
-    configstuff.add(Blocks.CHORUS_FLOWER.getRegistryName().toString() + DELIM + String.join(",", purpur));
-    configstuff.add(Blocks.CHORUS_PLANT.getRegistryName().toString() + DELIM + String.join(",", purpur));
+    configstuff.add(ForgeRegistries.BLOCKS.getKey(Blocks.CHORUS_FLOWER).toString() + DELIM + String.join(",", purpur));
+    configstuff.add(ForgeRegistries.BLOCKS.getKey(Blocks.CHORUS_PLANT).toString() + DELIM + String.join(",", purpur));
     final String[] mushrooms = new String[] {
         "minecraft:mushroom*", "minecraft:nether", "minecraft:roofed_forest*"
     };
-    configstuff.add(Blocks.BROWN_MUSHROOM.getRegistryName().toString() + DELIM + String.join(",", mushrooms));
-    configstuff.add(Blocks.RED_MUSHROOM.getRegistryName().toString() + DELIM + String.join(",", mushrooms));
-    configstuff.add(Blocks.COCOA.getRegistryName().toString() + DELIM + String.join(",",
+    configstuff.add(ForgeRegistries.BLOCKS.getKey(Blocks.BROWN_MUSHROOM).toString() + DELIM + String.join(",", mushrooms));
+    configstuff.add(ForgeRegistries.BLOCKS.getKey(Blocks.RED_MUSHROOM).toString() + DELIM + String.join(",", mushrooms));
+    configstuff.add(ForgeRegistries.BLOCKS.getKey(Blocks.COCOA).toString() + DELIM + String.join(",",
         new String[] {
             "minecraft:jungle_edge", "minecraft:jungle", "minecraft:jungle_hills", "minecraft:modified_jungle", "minecraft:bamboo_jungle", "minecraft:bamboo_jungle_hills",
             "minecraft:modified_jungle_edge", "minecraft:modified_jungle" }));
-    configstuff.add(Blocks.MELON_STEM.getRegistryName().toString() + DELIM + String.join(",",
+    configstuff.add(ForgeRegistries.BLOCKS.getKey(Blocks.MELON_STEM).toString() + DELIM + String.join(",",
         new String[] {
             "minecraft:ocean", "minecraft:river", "minecraft:beach",
             "minecraft:deep_ocean", "minecraft:warm_ocean", "minecraft:lukewarm_ocean", "minecraft:deep_warm_ocean", "minecraft:deep_lukewarm_ocean",
             "minecraft:jungle", "minecraft:jungle*", "minecraft:*jungle", "minecraft:bamboo_jungle",
             "minecraft:bamboo_jungle_hills", "minecraft:modified_jungle_edge", "minecraft:modified_jungle" }));
-    configstuff.add(Blocks.PUMPKIN_STEM.getRegistryName().toString() + DELIM + String.join(",",
+    configstuff.add(ForgeRegistries.BLOCKS.getKey(Blocks.PUMPKIN_STEM).toString() + DELIM + String.join(",",
         new String[] {
             "minecraft:extreme*", "minecraft:taiga", "minecraft:snowy*", "minecraft:taiga*", "minecraft:dark_forest_hills", "minecraft:*taiga",
             "minecraft:giant_tree_taiga_hills" }));
@@ -223,7 +223,7 @@ public class ConfigHandler {
 
   public List<String> getBiomesForCrop(Block block) {
     Map<String, List<String>> mapInit = this.getMapBiome(CROP_BIOMES);
-    String key = block.getRegistryName().toString();
+    String key = ForgeRegistries.BLOCKS.getKey(block).toString();
     if (mapInit.containsKey(key) == false) {
       //null means no list set, so everything allowed
       return null;
@@ -234,7 +234,7 @@ public class ConfigHandler {
 
   public List<String> getBiomesForSapling(Block block) {
     Map<String, List<String>> mapInit = this.getMapBiome(SAPLING_BIOMES);
-    String key = block.getRegistryName().toString();
+    String key = ForgeRegistries.BLOCKS.getKey(block).toString();
     if (mapInit.containsKey(key) == false) {
       //null means no list set, so everything allowed
       return null;
@@ -248,14 +248,14 @@ public class ConfigHandler {
     for (Map.Entry<String, List<String>> entry : this.getMapBiome(ConfigHandler.CROP_BIOMES).entrySet()) {
       String block = entry.getKey();
       List<String> biomes = entry.getValue();
-      if (UtilString.isInList(biomes, biome.getRegistryName())) {
+      if (UtilString.isInList(biomes, ForgeRegistries.BIOMES.getKey(biome))) {
         result.add(block);
       }
     }
     for (Map.Entry<String, List<String>> entry : this.getMapBiome(ConfigHandler.SAPLING_BIOMES).entrySet()) {
       String block = entry.getKey();
       List<String> biomes = entry.getValue();
-      if (UtilString.isInList(biomes, biome.getRegistryName())) {
+      if (UtilString.isInList(biomes, ForgeRegistries.BIOMES.getKey(biome))) {
         result.add(block);
       }
     }

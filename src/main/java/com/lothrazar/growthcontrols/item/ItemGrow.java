@@ -82,7 +82,7 @@ public class ItemGrow extends Item {
         continue;
       }
       if (p.isCrouching()) {
-        valid.add(b.getRegistryName().toString());
+        valid.add(g);
       }
       else {
         valid.add(b.getName().getString(100));
